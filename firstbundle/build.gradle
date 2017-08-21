@@ -2,6 +2,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.taobao.atlas'
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'org.greenrobot.greendao' // apply plugin
+
 atlas {
     bundleConfig {
         awbBundle true
@@ -58,7 +59,9 @@ dependencies {
     providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    /** dagger依赖库 **/
     compile 'com.google.dagger:dagger:2.11'
+    compile 'javax.annotation:jsr250-api:1.0'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
-    compile 'org.glassfish:javax.annotation:10.0-b28'
 }
