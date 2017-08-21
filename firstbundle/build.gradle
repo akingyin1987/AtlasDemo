@@ -1,0 +1,64 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.taobao.atlas'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+atlas {
+    bundleConfig {
+        awbBundle true
+    }
+    buildTypes {
+        debug {
+            baseApFile project.rootProject.file('app/build/outputs/apk/app-debug.ap')
+        }
+    }
+}
+group = 'com.atlas.demo'
+version = '1.0.1'
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+
+
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+greendao {
+    schemaVersion 1
+    daoPackage 'com.taobao.firstbundle.db'
+    targetGenDir 'src/main/java'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    providedCompile project(':middlewarelibrary')
+    providedCompile project(':publicbundle')
+    compile 'org.greenrobot:greendao:3.2.2' // add library
+    compile 'com.android.support.constraint:constraint-layout:1.0.0'
+    providedCompile 'com.android.support:support-v4:25.3.1'
+    providedCompile 'com.android.support:appcompat-v7:25.3.1'
+    providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.google.dagger:dagger:2.11'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    compile 'org.glassfish:javax.annotation:10.0-b28'
+}

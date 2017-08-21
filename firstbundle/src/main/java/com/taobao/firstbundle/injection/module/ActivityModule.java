@@ -1,0 +1,32 @@
+package com.taobao.firstbundle.injection.module;
+
+import android.app.Activity;
+import android.content.Context;
+import com.taobao.firstbundle.injection.scope.ActivityContext;
+import dagger.Module;
+import dagger.Provides;
+
+
+/**
+ * Created by Anthony on 2016/6/13.
+ * Class Note:
+ */
+@Module
+public class ActivityModule {
+    private Activity mActivity;
+
+    public ActivityModule(Activity activity) {
+        mActivity = activity;
+    }
+
+    @Provides
+    Activity provideActivity() {
+        return mActivity;
+    }
+
+    @Provides
+    @ActivityContext
+    Context providesContext() {
+        return mActivity;
+    }
+}
