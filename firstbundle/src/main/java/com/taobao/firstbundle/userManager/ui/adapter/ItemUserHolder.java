@@ -10,6 +10,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.taobao.firstbundle.R;
 import com.taobao.firstbundle.R2;
 import com.taobao.firstbundle.db.UserEntity;
 
@@ -21,16 +22,16 @@ public class ItemUserHolder extends BaseViewHolder {
   private TextView tvTime;
 
   public ItemUserHolder(LayoutInflater inflater, ViewGroup parent) {
-    this(inflater.inflate(R2.layout.item_user, parent, false));
+    this(inflater.inflate(R.layout.item_user, parent, false));
   }
 
   public ItemUserHolder(View view) {
     super(view);
     ButterKnife.bind(this, view);
-    tvSort = (TextView) view.findViewById(R2.id.tv_sort);
-    tvName = (TextView) view.findViewById(R2.id.tv_name);
-    tvDemo = (TextView) view.findViewById(R2.id.tv_demo);
-    tvTime = (TextView) view.findViewById(R2.id.tv_time);
+    tvSort = (TextView) view.findViewById(R.id.tv_sort);
+    tvName = (TextView) view.findViewById(R.id.tv_name);
+    tvDemo = (TextView) view.findViewById(R.id.tv_demo);
+    tvTime = (TextView) view.findViewById(R.id.tv_time);
   }
 
   public void bind(UserEntity userEntity, int postion) {

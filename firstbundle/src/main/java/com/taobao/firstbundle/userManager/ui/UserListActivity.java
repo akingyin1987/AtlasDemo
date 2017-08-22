@@ -142,7 +142,7 @@ public class UserListActivity extends AppCompatActivity
   }
 
    protected int getContentViewID() {
-    return R2.layout.activity_userlist;
+    return R.layout.activity_userlist;
   }
 
   private ActivityComponent mActivityComponent;
@@ -150,7 +150,7 @@ public class UserListActivity extends AppCompatActivity
     if (mActivityComponent == null) {
 
       mActivityComponent = DaggerActivityComponent.builder()
-          .applicationComponent(FirstBundleApp.get(this).getAppComponent())
+          .applicationComponent(FirstBundleApp.get().getAppComponent())
           .activityModule(new ActivityModule(this))
           .build();
     }
@@ -195,7 +195,7 @@ public class UserListActivity extends AppCompatActivity
   }
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
-    getMenuInflater().inflate(R2.menu.user_menu , mActionMv.getMenu()); //将menu关联
+    getMenuInflater().inflate(R.menu.user_menu , mActionMv.getMenu()); //将menu关联
     return super.onCreateOptionsMenu(menu);
   }
 

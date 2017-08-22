@@ -113,7 +113,7 @@ public class BlankFragment extends Fragment {
   @OnClick(R2.id.btn_Test)
   public void onViewClicked() {
     mBtnTest.setText("butterKnife");
-    Intent   intent  = new Intent(getContext(), UserListActivity.class);
+    Intent   intent  = new Intent(this.getView().getContext(), UserListActivity.class);
     getActivity().startActivity(intent);
   }
 
