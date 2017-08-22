@@ -4,6 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import com.taobao.firstbundle.db.DBHelper;
 import com.taobao.firstbundle.injection.component.ApplicationComponent;
+import com.taobao.firstbundle.injection.component.DaggerApplicationComponent;
+import com.taobao.firstbundle.injection.module.ApplicationModule;
+import com.taobao.firstbundle.injection.module.GreenDaoModule;
 
 /**
  * @ Description:
@@ -27,10 +30,10 @@ public class FirstBundleApp  extends Application {
   public ApplicationComponent getAppComponent() {
     if (mAppComponent == null) {
 
-      //mAppComponent = DaggerApplicationComponent.builder().
-      //    applicationModule(new ApplicationModule((Application) getApplicationContext()))
-      //    .greenDaoModule(new GreenDaoModule(DBHelper.getDaoSession(getApplicationContext())))
-      //    .build();
+      mAppComponent = DaggerApplicationComponent.builder().
+          applicationModule(new ApplicationModule((Application) getApplicationContext()))
+          .greenDaoModule(new GreenDaoModule(DBHelper.getDaoSession(getApplicationContext())))
+          .build();
     }
     return mAppComponent;
   }

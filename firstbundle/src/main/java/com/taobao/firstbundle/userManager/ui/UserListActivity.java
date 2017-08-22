@@ -22,10 +22,13 @@ import butterknife.OnClick;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.chad.library.adapter.base.listener.OnItemDragListener;
+import com.taobao.firstbundle.FirstBundleApp;
 import com.taobao.firstbundle.R;
 import com.taobao.firstbundle.R2;
 import com.taobao.firstbundle.db.UserEntity;
 import com.taobao.firstbundle.injection.component.ActivityComponent;
+import com.taobao.firstbundle.injection.component.DaggerActivityComponent;
+import com.taobao.firstbundle.injection.module.ActivityModule;
 import com.taobao.firstbundle.userManager.presenter.UserContract;
 import com.taobao.firstbundle.userManager.presenter.impl.UserPressenterImpl;
 import com.taobao.firstbundle.userManager.ui.adapter.UserListAdapter;
@@ -146,10 +149,10 @@ public class UserListActivity extends AppCompatActivity
   public ActivityComponent activityComponent() {
     if (mActivityComponent == null) {
 
-      //mActivityComponent = DaggerActivityComponent.builder()
-      //    .applicationComponent(FirstBundleApp.get(this).getAppComponent())
-      //    .activityModule(new ActivityModule(this))
-       //   .build();
+      mActivityComponent = DaggerActivityComponent.builder()
+          .applicationComponent(FirstBundleApp.get(this).getAppComponent())
+          .activityModule(new ActivityModule(this))
+          .build();
     }
     return mActivityComponent;
   }
