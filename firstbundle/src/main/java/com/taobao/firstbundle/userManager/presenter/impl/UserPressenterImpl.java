@@ -25,6 +25,12 @@ public class UserPressenterImpl  implements UserContract.Presenter {
   }
 
   @Override public boolean delectUser(UserEntity userEntity) {
+    try {
+      mUserEntityDao.delete(userEntity);
+      return  true;
+    }catch (Exception e){
+      e.printStackTrace();
+    }
     return false;
   }
 
@@ -41,7 +47,7 @@ public class UserPressenterImpl  implements UserContract.Presenter {
   }
 
   @Override public List<UserEntity> findAllUser() {
-    return null;
+    return mUserEntityDao.queryBuilder().list();
   }
 
   @Override public void attachView(UserContract.View view) {

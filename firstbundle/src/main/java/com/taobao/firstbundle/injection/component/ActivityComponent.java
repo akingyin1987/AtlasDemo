@@ -2,6 +2,7 @@ package com.taobao.firstbundle.injection.component;
 
 import com.taobao.firstbundle.injection.module.ActivityModule;
 import com.taobao.firstbundle.injection.scope.PerActivity;
+import com.taobao.firstbundle.userManager.ui.UserListActivity;
 import dagger.Component;
 
 /**
@@ -12,6 +13,9 @@ import dagger.Component;
 @PerActivity
 @Component(dependencies = ApplicationComponent.class, modules = ActivityModule.class)
 public interface ActivityComponent {
+
+
+  void  inject(UserListActivity  activity);
 
 
 

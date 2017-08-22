@@ -12,9 +12,6 @@ import android.text.TextUtils;
 import android.widget.Toast;
 import com.facebook.stetho.Stetho;
 import com.taobao.injection.component.ApplicationComponent;
-import com.taobao.injection.component.DaggerApplicationComponent;
-import com.taobao.injection.module.ApplicationModule;
-import com.taobao.injection.module.GreenDaoModule;
 import com.tencent.bugly.crashreport.CrashReport;
 import java.io.File;
 import org.osgi.framework.BundleException;
@@ -75,10 +72,10 @@ public class DemoApplication extends Application {
     public ApplicationComponent getAppComponent() {
         if (mAppComponent == null) {
 
-            mAppComponent = DaggerApplicationComponent.builder().
-                    applicationModule(new ApplicationModule((Application) getApplicationContext()))
-                    .greenDaoModule(new GreenDaoModule())
-                    .build();
+            //mAppComponent = DaggerApplicationComponent.builder().
+            //        applicationModule(new ApplicationModule((Application) getApplicationContext()))
+            //        .greenDaoModule(new GreenDaoModule())
+            //        .build();
         }
         return mAppComponent;
     }

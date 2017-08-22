@@ -29,6 +29,7 @@ subprojects {
 //            url "http://mvnrepo.alibaba-inc.com/mvn/repository"
             url "http://maven.aliyun.com/nexus/content/groups/public"
         }
+        maven { url "https://jitpack.io" }
     }
 }
 

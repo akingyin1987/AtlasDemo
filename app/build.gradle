@@ -1,6 +1,7 @@
 group = 'com.taobao.android.atlasdemo'
 version = getEnvValue("versionName", "1.0.1");
 def apVersion = getEnvValue("apVersion", "");
+
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.android.application'
 apply plugin: 'com.taobao.atlas'
@@ -12,7 +13,7 @@ repositories {
 
 android {
     compileSdkVersion 25
-    buildToolsVersion '25.0.3'
+    buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.taobao.demo"
         minSdkVersion 14
@@ -91,8 +92,7 @@ atlas {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     // //核心sdk
     compile('com.taobao.android:atlas_core:5.0.7.30@aar') {
         transitive = true
@@ -102,25 +102,24 @@ dependencies {
     compile 'org.glassfish:javax.annotation:10.0-b28'
     //如果不需要用到atlas的动态部署功能，不需要依赖atlasupdate
     //compile 'com.taobao.android:atlasupdate:1.0.8@aar'
-    compile 'com.tencent.bugly:crashreport:latest.release' //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
-    compile 'com.tencent.bugly:nativecrashreport:latest.release' //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
+    compile 'com.tencent.bugly:crashreport:latest.release'
+    //其中latest.release指代最新Bugly SDK版本号，也可以指定明确的版本号，例如2.1.9
+    compile 'com.tencent.bugly:nativecrashreport:latest.release'
+    //其中latest.release指代最新Bugly NDK版本号，也可以指定明确的版本号，例如3.0
     compile 'com.facebook.stetho:stetho:1.5.0'
     compile project(':middlewarelibrary')
     compile project(':splashscreen')
     compile project(':activitygroupcompat')
-
     bundleCompile project(':firstbundle')
     bundleCompile project(':secondbundle')
     bundleCompile project(':remotebundle')
     bundleCompile project(':publicbundle')
     bundleCompile project(':databindbundle')
-
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.taobao.android:atlasupdate:1.1.4.10@aar'
-
     compile 'com.alibaba:fastjson:1.1.45.android@jar'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.android.support:recyclerview-v7:25.3.1'

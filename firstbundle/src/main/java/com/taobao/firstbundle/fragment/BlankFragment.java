@@ -1,6 +1,7 @@
 package com.taobao.firstbundle.fragment;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -14,6 +15,7 @@ import butterknife.OnClick;
 import butterknife.Unbinder;
 import com.taobao.firstbundle.R;
 import com.taobao.firstbundle.R2;
+import com.taobao.firstbundle.userManager.ui.UserListActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -111,6 +113,8 @@ public class BlankFragment extends Fragment {
   @OnClick(R2.id.btn_Test)
   public void onViewClicked() {
     mBtnTest.setText("butterKnife");
+    Intent   intent  = new Intent(getContext(), UserListActivity.class);
+    getActivity().startActivity(intent);
   }
 
   /**
