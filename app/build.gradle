@@ -1,6 +1,6 @@
 group = 'com.taobao.android.atlasdemo'
 version = getEnvValue("versionName", "1.0.1");
-def apVersion = getEnvValue("apVersion", "");
+def apVersion = getEnvValue("apVersion", "1.0.1");
 
 apply plugin: 'com.jakewharton.butterknife'
 apply plugin: 'com.android.application'
