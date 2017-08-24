@@ -7,6 +7,7 @@ import com.taobao.firstbundle.injection.component.ApplicationComponent;
 import com.taobao.firstbundle.injection.component.DaggerApplicationComponent;
 import com.taobao.firstbundle.injection.module.ApplicationModule;
 import com.taobao.firstbundle.injection.module.GreenDaoModule;
+import com.taobao.publicBundle.KissTools;
 
 /**
  * @ Description:
@@ -25,6 +26,7 @@ public class FirstBundleApp  extends Application {
     DBHelper.init(getApplicationContext());
     myApplication = this;
     System.out.println("onCreate");
+    KissTools.setContext(getApplicationContext());
   }
 
   public ApplicationComponent getAppComponent() {

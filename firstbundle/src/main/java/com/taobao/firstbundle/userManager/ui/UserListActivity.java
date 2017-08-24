@@ -16,9 +16,11 @@ import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.baidu.location.BDLocation;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
 import com.chad.library.adapter.base.listener.OnItemDragListener;
@@ -32,6 +34,8 @@ import com.taobao.firstbundle.injection.module.ActivityModule;
 import com.taobao.firstbundle.userManager.presenter.UserContract;
 import com.taobao.firstbundle.userManager.presenter.impl.UserPressenterImpl;
 import com.taobao.firstbundle.userManager.ui.adapter.UserListAdapter;
+import com.taobao.middleware.AppLocation;
+import com.taobao.publicBundle.PreferencesUtil;
 import javax.inject.Inject;
 
 /**
@@ -181,6 +185,15 @@ public class UserListActivity extends AppCompatActivity
     initToolBar();
     injectDagger();
     initEventAndData();
+    Toast.makeText(this, "Test2", Toast.LENGTH_SHORT).show();
+    PreferencesUtil.setDefaultName("TEST");
+    PreferencesUtil.put("test","test1");
+    AppLocation.getInstance().startLocation(this, new AppLocation.AppLocListion() {
+      @Override public void call(BDLocation bdLocation) {
+
+        System.out.println("loc="+bdLocation.getLocType());
+      }
+    });
   }
 
   @OnClick(R2.id.fab_edit_task_done) public void onViewClicked() {
@@ -201,6 +214,7 @@ public class UserListActivity extends AppCompatActivity
 
   @Override protected void onDestroy() {
     super.onDestroy();
+    AppLocation.getInstance().stopLocation();
     mPresenter.detachView();
   }
 

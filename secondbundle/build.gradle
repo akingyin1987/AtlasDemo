@@ -5,6 +5,11 @@ atlas {
     bundleConfig{
         awbBundle true
     }
+    buildTypes {
+        debug {
+            baseApFile project.rootProject.file('app/build/outputs/apk/app-debug.ap')
+        }
+    }
 }
 group = 'com.atlas.demo'
 version = '1.0.0'
@@ -37,6 +42,7 @@ dependencies {
     providedCompile 'com.android.support:support-v4:25.3.1'
     providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     providedCompile project(':middlewarelibrary')
+    providedCompile project(':publicbundle')
 
 
 }

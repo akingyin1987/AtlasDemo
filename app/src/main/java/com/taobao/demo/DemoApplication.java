@@ -10,6 +10,7 @@ import android.taobao.atlas.runtime.ActivityTaskMgr;
 import android.taobao.atlas.runtime.ClassNotFoundInterceptorCallback;
 import android.text.TextUtils;
 import android.widget.Toast;
+import com.baidu.mapapi.SDKInitializer;
 import com.facebook.stetho.Stetho;
 import com.taobao.injection.component.ApplicationComponent;
 import com.tencent.bugly.crashreport.CrashReport;
@@ -28,6 +29,8 @@ public class DemoApplication extends Application {
         super.onCreate();
         Stetho.initializeWithDefaults(this);
         CrashReport.initCrashReport(this);
+
+        SDKInitializer.initialize(getApplicationContext());
 
         Atlas.getInstance().setClassNotFoundInterceptorCallback(new ClassNotFoundInterceptorCallback() {
             @Override
