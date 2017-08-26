@@ -10,15 +10,15 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/activitygroupcompat" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/databindbundle" />
-            <option value="$PROJECT_DIR$/firstbundle" />
             <option value="$PROJECT_DIR$/lottie" />
             <option value="$PROJECT_DIR$/middlewarelibrary" />
             <option value="$PROJECT_DIR$/publicbundle" />
+            <option value="$PROJECT_DIR$/publicbundle2" />
             <option value="$PROJECT_DIR$/remotebundle" />
             <option value="$PROJECT_DIR$/secondbundle" />
             <option value="$PROJECT_DIR$/secondbundlelibrary" />
             <option value="$PROJECT_DIR$/splashscreen" />
+            <option value="$PROJECT_DIR$/threebundle" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

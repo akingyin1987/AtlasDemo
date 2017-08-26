@@ -11,9 +11,7 @@ public class SecondBundleActivity extends AppCompatActivity implements PlusOneFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secondbundle);
-        System.out.println("name="+PreferencesUtil.getDefaultName());
-        String   value = PreferencesUtil.get("test","");
-        System.out.println("value="+value);
+
 //        Toast.makeText(this,"ddddddddddd",Toast.LENGTH_LONG).show();
     }
 

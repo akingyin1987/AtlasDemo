@@ -12,7 +12,7 @@ atlas {
     }
 }
 group = 'com.atlas.demo'
-version = '1.0.0'
+version = '1.0.1'
 
 android {
     compileSdkVersion 25
@@ -22,7 +22,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -37,12 +37,14 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    providedCompile project(':middlewarelibrary')
+    providedCompile project(':publicbundle2')
+    providedCompile project(':publicbundle')
     compile project(":secondbundlelibrary");
     providedCompile 'com.android.support:appcompat-v7:25.3.1'
     providedCompile 'com.android.support:support-v4:25.3.1'
     providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
-    providedCompile project(':middlewarelibrary')
-    providedCompile project(':publicbundle')
+
 
 
 }

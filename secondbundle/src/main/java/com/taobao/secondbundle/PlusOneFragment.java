@@ -71,15 +71,27 @@ public class PlusOneFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_plus_one, container, false);
+        final View view = inflater.inflate(R.layout.fragment_plus_one, container, false);
         view.findViewById(R.id.plus_one_button).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View view1) {
                 Intent intent = new Intent();
-                intent.setClass(view.getContext(), SecondbundleShareActivity.class);
-                startActivity(intent);
+                intent.setClass(view.getContext(), ShareDataActivity.class);
+                getActivity(). startActivity(intent);
             }
         });
+
+        view.findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("--------------");
+                Intent  intent = new Intent();
+                intent.setClass(view.getContext(),ShareDataActivity.class);
+                getActivity(). startActivity(intent);
+            }
+        });
+
+
 
         return view;
     }

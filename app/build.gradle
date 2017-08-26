@@ -1,5 +1,5 @@
 group = 'com.taobao.android.atlasdemo'
-version = getEnvValue("versionName", "1.0.0");
+version = getEnvValue("versionName", "1.0.1");
 def apVersion = getEnvValue("apVersion", "");
 
 apply plugin: 'com.jakewharton.butterknife'
@@ -23,13 +23,13 @@ android {
         vectorDrawables.useSupportLibrary = true
         ndk {
             // 设置支持的SO库架构
-            abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
+            abiFilters 'armeabi' , 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
         }
     }
 
 
     dataBinding {
-        enabled = true
+        enabled = false
     }
     lintOptions {
         abortOnError false
@@ -66,7 +66,8 @@ atlas {
 
     atlasEnabled true
     tBuildConfig {
-        autoStartBundles = ['com.taobao.firstbundle'] //自启动bundle配置
+        autoStartBundles = ['com.taobao.secondbundle','com.taobao.firstbundle','com.atlas.threebundle'] //自启动bundle配置
+
         outOfApkBundles = ['remotebundle']
         preLaunch = 'com.taobao.demo.DemoPreLaunch'
         classInject false
@@ -114,11 +115,13 @@ dependencies {
     compile project(':middlewarelibrary')
     compile project(':splashscreen')
     compile project(':activitygroupcompat')
-    bundleCompile project(':firstbundle')
+//    bundleCompile project(':firstbundle')
     bundleCompile project(':secondbundle')
     bundleCompile project(':remotebundle')
     bundleCompile project(':publicbundle')
-    bundleCompile project(':databindbundle')
+    bundleCompile project(':publicbundle2')
+  //  bundleCompile project(':databindbundle')
+    bundleCompile project(':threebundle')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile 'com.android.support:support-vector-drawable:25.3.1'

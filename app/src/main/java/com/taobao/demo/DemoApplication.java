@@ -5,6 +5,7 @@ import android.app.Application;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.taobao.atlas.bundleInfo.AtlasBundleInfoManager;
+import android.taobao.atlas.bundleInfo.BundleListing;
 import android.taobao.atlas.framework.Atlas;
 import android.taobao.atlas.runtime.ActivityTaskMgr;
 import android.taobao.atlas.runtime.ClassNotFoundInterceptorCallback;
@@ -15,6 +16,10 @@ import com.facebook.stetho.Stetho;
 import com.taobao.injection.component.ApplicationComponent;
 import com.tencent.bugly.crashreport.CrashReport;
 import java.io.File;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 import org.osgi.framework.BundleException;
 
 /**
@@ -36,8 +41,20 @@ public class DemoApplication extends Application {
             @Override
             public Intent returnIntent(Intent intent) {
                 final String className = intent.getComponent().getClassName();
-                final String bundleName = AtlasBundleInfoManager.instance().getBundleForComponet(className);
+                BundleListing bundleInfo = AtlasBundleInfoManager.instance().getBundleInfo();
+                LinkedHashMap<String,BundleListing.BundleInfo>  bundleInfoLinkedHashMap = bundleInfo.getBundles();
+                for(BundleListing.BundleInfo bundleInfo1 :bundleInfoLinkedHashMap.values()){
+                    System.out.println(bundleInfo1.getName()+":"+bundleInfo1.getPkgName());
+                    HashMap<String,Boolean>  booleanHashMap = bundleInfo1.getActivities();
+                    if(null != booleanHashMap){
+                        for(String  key : booleanHashMap.keySet()){
+                            System.out.println(key+":"+booleanHashMap.get(key));
+                        }
+                    }
 
+                }
+                final String bundleName = AtlasBundleInfoManager.instance().getBundleForComponet(className);
+                System.out.println("className="+className+":"+bundleName);
                 if (!TextUtils.isEmpty(bundleName) && !AtlasBundleInfoManager.instance().isInternalBundle(bundleName)) {
 
                     //远程bundle

@@ -8,6 +8,8 @@
         <activity android:name=".RemoteBundleActivity"
             android:theme="@style/AppTheme.NoActionBar"
             ></activity>
+
+
     </application>
 
 </manifest>

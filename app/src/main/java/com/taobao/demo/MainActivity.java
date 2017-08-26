@@ -11,6 +11,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.taobao.atlas.framework.Atlas;
+import android.taobao.atlas.framework.BundleImpl;
+import android.taobao.atlas.framework.BundleInstaller;
 import android.taobao.atlas.runtime.RuntimeVariables;
 import android.util.Log;
 import android.view.Menu;
@@ -20,6 +23,8 @@ import android.widget.Toast;
 import com.middleware.dialog.Dialog;
 import com.taobao.android.ActivityGroupDelegate;
 import com.taobao.update.Updater;
+
+import org.osgi.framework.BundleException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -71,7 +76,9 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         mActivityDelegate = new ActivityGroupDelegate(this,savedInstanceState);
         mActivityGroupContainer = (ViewGroup) findViewById(R.id.content);
-        switchToActivity("home","com.taobao.firstbundle.FirstBundleActivity");
+        switchToActivity("second","com.taobao.secondbundle.SecondBundleActivity");
+       // switchToActivity("home","com.taobao.firstbundle.FirstBundleActivity");
+
     }
 
     public void switchToActivity(String key,String activityName){
@@ -164,6 +171,11 @@ public class MainActivity extends AppCompatActivity
                 Intent intent = new Intent();
                 intent.setPackage(getPackageName());
                 intent.setClassName(this,"com.taobao.databindbundle.databind.DataBundleSampleActivity");
+                startActivity(intent);
+            }else if(id == R.id.nav_share_data){
+                Intent intent = new Intent();
+                intent.setPackage(getPackageName());
+                intent.setClassName(this,"com.atlas.threebundle.ThreeActivity");
                 startActivity(intent);
             }
 
