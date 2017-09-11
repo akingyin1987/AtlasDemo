@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.taobao.atlas'
-
+apply plugin: 'org.greenrobot.greendao'
 
 atlas {
     bundleConfig {
@@ -38,6 +38,11 @@ android {
     }
 }
 
+greendao {
+    schemaVersion 1
+    daoPackage 'com.atlas.threebundle.db.dao'
+    targetGenDir 'src/main/java'
+}
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -45,6 +50,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
+    providedCompile project(':DaoCore')
     providedCompile project(':middlewarelibrary')
     providedCompile project(':publicbundle')
 }

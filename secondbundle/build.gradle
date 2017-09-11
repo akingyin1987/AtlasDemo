@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.taobao.atlas'
-
+apply plugin: 'org.greenrobot.greendao'
 atlas {
     bundleConfig{
         awbBundle true
@@ -34,17 +34,20 @@ android {
         }
     }
 }
-
+greendao {
+    schemaVersion 1
+    daoPackage 'com.taobao.secondbundle.db.dao'
+    targetGenDir 'src/main/java'
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    providedCompile project(':middlewarelibrary')
-    providedCompile project(':publicbundle2')
-    providedCompile project(':publicbundle')
-    compile project(":secondbundlelibrary");
-    providedCompile 'com.android.support:appcompat-v7:25.3.1'
-    providedCompile 'com.android.support:support-v4:25.3.1'
-    providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
+  compile fileTree(include: ['*.jar'], dir: 'libs')
+  providedCompile project(':middlewarelibrary')
+  providedCompile project(':publicbundle')
+  compile project(':secondbundlelibrary')
+  providedCompile 'com.android.support:appcompat-v7:25.3.1'
+  providedCompile 'com.android.support:support-v4:25.3.1'
+  providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
 
-
-
+  // add library
+  compile project(':DaoCore')
 }

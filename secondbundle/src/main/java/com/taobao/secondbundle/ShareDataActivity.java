@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
-import com.akingyin.publicbundle2.Tooltow;
+
 import com.taobao.publicBundle.Tools;
 
 
@@ -19,7 +19,7 @@ public class ShareDataActivity  extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_plus_one);
         Tools.getCurrentTime();
-        Tooltow.log();
+
 //        System.out.println("name="+ PreferencesUtil.getDefaultName());
 //        String   value = PreferencesUtil.get("test","");
 //        System.out.println("value="+value);

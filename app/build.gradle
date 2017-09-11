@@ -66,7 +66,7 @@ atlas {
 
     atlasEnabled true
     tBuildConfig {
-        autoStartBundles = ['com.taobao.secondbundle','com.taobao.firstbundle','com.atlas.threebundle'] //自启动bundle配置
+        autoStartBundles = ['com.taobao.secondbundle','com.atlas.threebundle'] //自启动bundle配置
 
         outOfApkBundles = ['remotebundle']
         preLaunch = 'com.taobao.demo.DemoPreLaunch'
@@ -115,12 +115,11 @@ dependencies {
     compile project(':middlewarelibrary')
     compile project(':splashscreen')
     compile project(':activitygroupcompat')
-//    bundleCompile project(':firstbundle')
+    //    bundleCompile project(':firstbundle')
     bundleCompile project(':secondbundle')
     bundleCompile project(':remotebundle')
     bundleCompile project(':publicbundle')
-    bundleCompile project(':publicbundle2')
-  //  bundleCompile project(':databindbundle')
+    //  bundleCompile project(':databindbundle')
     bundleCompile project(':threebundle')
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
@@ -130,6 +129,7 @@ dependencies {
     compile 'com.alibaba:fastjson:1.1.45.android@jar'
     compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
     compile 'com.android.support:recyclerview-v7:25.3.1'
+    //compile project(':DaoCore')
 }
 
 String getEnvValue(key, defValue) {
