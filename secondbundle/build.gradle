@@ -49,5 +49,5 @@ dependencies {
   providedCompile 'com.android.support.constraint:constraint-layout:1.0.0-alpha8'
 
   // add library
-  compile project(':DaoCore')
+  providedCompile project(':DaoCore')
 }
